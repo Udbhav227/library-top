@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  color: #FFFFFF;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  align-items: center;
+}
+
+.header-section .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-section .logo {
+  height: 48px;
+  margin-right: 10px;
+}
+
+.header-section .logo-text {
+  font-family: "Akaya Telivigala";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.add-btn img {
+  width: 30px;
+  height: 30px; 
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: invert(1);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+}
+
+.add-btn:hover img {
+  filter: brightness(120%);
+}
+
+.header-section input[type="text"] {
+  width: 100%;
+  max-width: 50%;
+  padding: 7px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-family: Open Sans, sans-serif; /* Match font with the rest of the app */
+  font-size: 1rem; /* Slightly larger text for readability */
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.header-section input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.header-section input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic; 
+  text-align: center;
+}
+
+.main-content,.footer-section {
+  padding: 20px; 
+  background-color: rgba(255, 255, 255, 0.05); /* slight background contrast */
+}

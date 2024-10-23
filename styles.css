@@ -6,91 +6,130 @@
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
+body, html {
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   color: #FFFFFF;
+  height: 100%;
 }
 
-.header-section {
+/* Header */
+header {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  font-size: 1.4rem;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: .5em 1em;
 }
 
-.header-section .logo-container {
+.logo-container {
+  font-family: 'Akaya Telivigala';
+  text-align: center;
+  padding: 10px 20px 20px 20px;
+}
+
+.logo-container h1 {
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+
+.logo-container h1 + p {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.quick-stats {
+  margin-top: 5px;
+}
+
+.quick-stats span {
+  margin: 0 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #330867;
+  text-align: center;
+  padding: .5em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Main */
+main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.header-section .logo {
-  height: 48px;
-  margin-right: 10px;
-}
-
-.header-section .logo-text {
-  font-family: "Akaya Telivigala";
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.add-btn img {
-  width: 30px;
-  height: 30px; 
+  padding: 1.5em;
 }
 
 .add-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  filter: invert(1);
-  background-color: transparent;
-  border: none;
+  padding: 15px 75px;
+  margin-bottom: 20px;  
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  padding: 6px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  transition: transform 0.2s ease-in-out;
-}
-
-.add-btn:hover {
-  transform: scale(1.1); 
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
-}
-
-.add-btn:hover img {
-  filter: brightness(120%);
-}
-
-.header-section input[type="text"] {
-  width: 100%;
-  max-width: 50%;
-  padding: 7px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  font-family: Open Sans, sans-serif; /* Match font with the rest of the app */
-  font-size: 1rem; /* Slightly larger text for readability */
-  transition: box-shadow 0.2s ease-in-out;
-}
-
-.header-section input[type="text"]:focus {
+  border: none;
   outline: none;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.8);
+  color: #fff;
+  background: #330867;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
 }
 
-.header-section input[type="text"]::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-style: italic; 
-  text-align: center;
+.add-btn:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
 }
 
-.main-content,.footer-section {
-  padding: 20px; 
-  background-color: rgba(255, 255, 255, 0.05); /* slight background contrast */
+.add-btn:active {
+  color: #000
+}
+
+.add-btn:active:after {
+  background: transparent;
+}
+
+.add-btn:hover:before {
+  opacity: 1;
+}
+
+.add-btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #330867;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }

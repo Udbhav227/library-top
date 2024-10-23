@@ -4,30 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
+  <title>Library</title>
 </head>
 <body>
-  <div class="header-section">
+  <header>
     <div class="logo-container">
-      <img src="img/auto_stories_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt="book logo" class="logo">
-      <p class="logo-text">PageHeaven</p>
+      <h1>PageHeaven</h1>
+      <p>A simple library app to track your reading.</p>
     </div>
-    <input
-      type="text"
-      name="search"
-      id="search"
-      placeholder="Search book" >
+    <div class="quick-stats">
+      <span>Total Books: <span id="totalBooks">0</span></span>
+      <span>Reading: <span id="booksReading">0</span></span>
+      <span>Read: <span id="booksRead">0</span></span>
+    </div>
+  </header>
+  
+  <main>
     <button class="add-btn">
-      <img src="img/plus.svg" alt="">
+      Add Book
     </button>
-  </div>
 
-  <div class="main-content">
+    <div class="cards-container">
+      
+    </div>
+  </main>
 
-  </div>
-
-  <div class="footer-section">
-
-  </div>
+  <footer>
+    <p>Made with ❤️ by  <a href="https://in.linkedin.com/in/udbhav-ashish" target="_blank">Udbhav Ashish</a></p>
+  </footer>
 </body>
 </html>

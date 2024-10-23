@@ -38,7 +38,7 @@ header {
 .logo-container {
   font-family: 'Akaya Telivigala';
   text-align: center;
-  padding: 10px 18px 18px 18px;
+  padding: 10px 0 18px 0;
 }
 
 .logo-container h1 {
@@ -64,6 +64,7 @@ footer {
   background-color: #330867;
   text-align: center;
   padding: .7em;
+  position: relative;
   bottom: 0;
   width: 100%;
   margin-top: 1rem;
@@ -80,8 +81,8 @@ footer a:hover {
 
 /* Main */
 main {
-  padding: 1.5em 3em; 
-  
+  padding: 1.4rem 3rem; 
+  height: 100%;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -160,7 +161,7 @@ main {
 .cards {
   display: grid;
   justify-content: start;
-  grid-template-columns: repeat(auto-fit, 235px);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
   grid-gap: 40px;
   width: 100%;
 }
@@ -179,7 +180,7 @@ main {
 
 .card-image-container {
   width: 100%;
-  aspect-ratio: 9/13;
+  aspect-ratio: 9/12;
   overflow: hidden;
   position: relative;
 }
@@ -211,4 +212,24 @@ main {
   padding: 5px 20px;
   background-color: #303032;
   border-radius: 20px;
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  main {
+    padding: 15px;
+  }
+
+  .wrapper {
+    padding: 15px;
+  }
+
+  .cards {
+   grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .card-image-container {
+    aspect-ratio: 9/6;
+  }
 }

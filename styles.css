@@ -56,7 +56,7 @@ header {
 }
 
 .quick-stats span {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 /* Footer */
@@ -64,7 +64,6 @@ footer {
   background-color: #330867;
   text-align: center;
   padding: .7em;
-  /* position: absolute;   */
   bottom: 0;
   width: 100%;
   margin-top: 1rem;
@@ -81,13 +80,19 @@ footer a:hover {
 
 /* Main */
 main {
-  padding: 1.5em; 
+  padding: 1.5em 3em; 
+  
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+  text-align: center;
+}
+
+.cards {
+  text-align: start;
 }
 
 .add-btn {
@@ -153,12 +158,11 @@ main {
 }
 
 .cards {
-  /* grid-column: 2 / span 12; */
   display: grid;
-  justify-content: center;
-  /* grid-template-columns: repeat(autofill, minmax(auto, 100px)); */
-  grid-template-columns: repeat(autofill, minmax(auto, 100px));
+  justify-content: start;
+  grid-template-columns: repeat(auto-fit, 235px);
   grid-gap: 40px;
+  width: 100%;
 }
 
 .card {
@@ -175,7 +179,7 @@ main {
 
 .card-image-container {
   width: 100%;
-  padding-top: 100%;
+  aspect-ratio: 9/13;
   overflow: hidden;
   position: relative;
 }
@@ -199,7 +203,7 @@ main {
 .card-info {
   display: flex;
   align-self: end;
-  align-items: center;
+  align-items: end;
 }
 
 .checkbox {

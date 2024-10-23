@@ -215,6 +215,10 @@ main {
 }
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
+  header {
+    padding-top: 8px;
+  }
+
   main {
     padding: 15px;
   }
@@ -231,5 +235,9 @@ main {
 
   .card-image-container {
     aspect-ratio: 9/6;
+  }
+
+  footer {
+    margin-top: 7px;
   }
 }

@@ -10,6 +10,7 @@ function Book(title, author, pages, readStatus) {
 function addBookToLibrary(title, author, pages, readStatus) {
   const newBook = new Book(title, author, pages, readStatus)
   myLibrary.push(newBook);
+  displayBooks();
 }
 
 function displayBooks() {
@@ -21,32 +22,46 @@ function displayBooks() {
     bookCard.innerHTML = `
       <h3>${book.title}</h3>
       <p>${book.author}, ${book.pages}, ${book.readStatus}</p>
+      <button class="remove-book-btn" data-book-index="${index}">Remove</button>
     `;
-    bookCard.setAttribute('data-book-index', index);
     libraryContainer.appendChild(bookCard);
-  })
+  });
+
 }
 
+document.getElementById('library-container').addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove-book-btn')) {
+    const index = e.target.getAttribute('data-book-index');
+    myLibrary.splice(index, 1);
+    displayBooks();
+  }
+})
 addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, 'Not Read');
 addBookToLibrary('The Time Machine', 'H.G. Wells', 328, 'Read');
-
 
 // Dialog Box
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
+const cancelButton = document.getElementById("cancel-btn");
 const submitButton = document.getElementById("submit-btn");
 
 showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
+cancelButton.addEventListener("click", () => {
+  dialog.close();
+})
+
 dialog.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const bookData = Object.fromEntries(formData);
-  console.log("New Book Data:", bookData);
-  dialog.close();
-})
-
-
-
+  if (bookData.title && bookData.author && bookData.pages && bookData.readStatus) {
+    addBookToLibrary(bookData.title, bookData.author, bookData.pages, bookData.readStatus);
+    dialog.close();
+    displayBooks();
+  } else {
+    alert("Invalid book data. Please fill out all fields.");
+  }
+});

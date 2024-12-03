@@ -21,7 +21,7 @@ function displayBooks() {
     const bookCard = document.createElement('div');
     bookCard.innerHTML = `
       <h3>${book.title}</h3>
-      <p>${book.author}, ${book.pages}, ${book.readStatus}</p>
+      <p>${book.author}, <br> Pages: ${book.pages},<br> ${book.readStatus} ${book.readStatus == "Read" ? "✅" : "📔"} </p>
       <button class="remove-book-btn" data-book-index="${index}">Remove</button>
     `;
     libraryContainer.appendChild(bookCard);
@@ -36,8 +36,8 @@ document.getElementById('library-container').addEventListener('click', (e) => {
     displayBooks();
   }
 })
-addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, 'Not Read');
 addBookToLibrary('The Time Machine', 'H.G. Wells', 328, 'Read');
+addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, 'Not Read');
 
 // Dialog Box
 const dialog = document.querySelector("dialog");
